@@ -24,7 +24,7 @@ namespace Elearning
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-            this.MinimizeBox = true;
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
