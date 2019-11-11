@@ -33,17 +33,17 @@
             this.txtUser = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUser
@@ -91,6 +91,17 @@
             this.bunifuDragControl1.TargetControl = this.pictureBox1;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(295, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(285, 473);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // bunifuDragControl2
             // 
             this.bunifuDragControl2.Fixed = true;
@@ -129,7 +140,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Elearning.Properties.Resources.icons8_male_user_90;
-            this.pictureBox2.Location = new System.Drawing.Point(84, 35);
+            this.pictureBox2.Location = new System.Drawing.Point(87, 35);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(115, 115);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -185,17 +196,7 @@
             this.bunifuThinButton21.Size = new System.Drawing.Size(214, 50);
             this.bunifuThinButton21.TabIndex = 3;
             this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(295, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(285, 473);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click);
             // 
             // Login
             // 
@@ -215,10 +216,10 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

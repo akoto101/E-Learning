@@ -26,5 +26,11 @@ namespace Elearning
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Main().ShowDialog();
+        }
     }
 }
