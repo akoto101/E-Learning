@@ -30,6 +30,10 @@ namespace Elearning
 
 
         }
+        public String GetQuestion()
+        {
+            return lblQuestion.Text;
+        }
         public String GetCorrectAnswer() { return correctAnswer; }
         public String GetSelected()
         {

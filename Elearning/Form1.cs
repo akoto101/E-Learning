@@ -17,6 +17,7 @@ namespace Elearning
         int posY = 4;
         List<String> answerKey = new List<String>();
         List<String> selectedAnswer = new List<String>();
+        List<String> question = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace Elearning
                 this.panel1.Controls.Add(a);
               //  MessageBox.Show(a.GetCorrectAnswer());
                 answerKey.Add(a.GetCorrectAnswer());
-
+                question.Add(a.GetQuestion());
                 var materialSkinManager = MaterialSkinManager.Instance;
                 materialSkinManager.AddFormToManage(this);
                 materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -43,12 +44,12 @@ namespace Elearning
 
             }
 
-            
-
+            lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
         }
        
         public void CheckQuiz()
         {
+            CheckQuiz quiz = new CheckQuiz();
             int score = 0;
             selectedAnswer.Clear();
             foreach (Quest q in panel1.Controls)
@@ -61,10 +62,12 @@ namespace Elearning
             {
                 try
                 {
-                    if (selectedAnswer[i].ToString().ToLower().Trim().Equals(answerKey[i].ToString().ToLower().Trim()))
+                    bool checkAnswer = selectedAnswer[i].ToString().ToLower().Trim().Equals(answerKey[i].ToString().ToLower().Trim());
+                    if (checkAnswer)
                     {
                         score += 1;
-                      //  MessageBox.Show(score+"");
+                        //  MessageBox.Show(score+"");
+                        quiz.Add((i + 1).ToString(), question[i].ToString(),answerKey[i].ToString(),checkAnswer);
                        
                        
                     }
@@ -76,7 +79,19 @@ namespace Elearning
                 }
               
             }
+            timer1.Stop();
             MessageBox.Show(score + "");
+            DialogResult result = MessageBox.Show("Are you sure to submit? ", "Finish",MessageBoxButtons.YesNo,MessageBoxIcon.Asterisk);
+            if (result == DialogResult.Yes)
+            {
+                quiz.Show();
+                
+            }
+            else
+            {
+                timer1.Start();
+            }
+                
         }
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
@@ -107,13 +122,17 @@ namespace Elearning
                 timer1.Stop();
             lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
         }
-
+        int tickStart = 0;
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000; // 1 second
-            timer1.Start();
-            lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
+            tickStart += 1;
+            if (tickStart == 1)
+            {
+
+                timer1.Tick += new EventHandler(timer1_Tick);
+                timer1.Interval = 1000; // 1 second
+                timer1.Start();
+            }
         }
     }
 }

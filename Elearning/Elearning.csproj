@@ -53,6 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckQuiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckQuiz.Designer.cs">
+      <DependentUpon>CheckQuiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CorrectAnswers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CorrectAnswers.Designer.cs">
+      <DependentUpon>CorrectAnswers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +97,12 @@
     <Compile Include="Quest.Designer.cs">
       <DependentUpon>Quest.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CheckQuiz.resx">
+      <DependentUpon>CheckQuiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorrectAnswers.resx">
+      <DependentUpon>CorrectAnswers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,7 +145,7 @@
     <None Include="Resources\icons8-future-90.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cute-asian-kid-doing-math-1024x683.jpg" />
+    <None Include="cute-asian-kid-doing-math-1024x683.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-male-user-90.png" />
@@ -140,6 +158,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-play-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_wrongs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cute-asian-kid-doing-math-1024x683.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
