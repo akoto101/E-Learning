@@ -43,10 +43,7 @@ namespace Elearning
 
             }
 
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000; // 1 second
-            timer1.Start();
-            lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
+            
 
         }
        
@@ -108,6 +105,14 @@ namespace Elearning
             counter--;
             if (counter == 0)
                 timer1.Stop();
+            lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
+        }
+
+        private void btnStartQuiz_Click(object sender, EventArgs e)
+        {
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 1000; // 1 second
+            timer1.Start();
             lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
         }
     }

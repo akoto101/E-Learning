@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnStartQuiz = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +44,7 @@
             this.panel1.AutoScroll = true;
             this.panel1.Location = new System.Drawing.Point(12, 112);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(534, 537);
+            this.panel1.Size = new System.Drawing.Size(534, 548);
             this.panel1.TabIndex = 0;
             // 
             // lblTime
@@ -75,6 +76,23 @@
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
+            // btnStartQuiz
+            // 
+            this.btnStartQuiz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStartQuiz.AutoSize = true;
+            this.btnStartQuiz.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStartQuiz.Depth = 0;
+            this.btnStartQuiz.Icon = global::Elearning.Properties.Resources.icons8_play_90;
+            this.btnStartQuiz.Location = new System.Drawing.Point(12, 70);
+            this.btnStartQuiz.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStartQuiz.Name = "btnStartQuiz";
+            this.btnStartQuiz.Primary = true;
+            this.btnStartQuiz.Size = new System.Drawing.Size(126, 36);
+            this.btnStartQuiz.TabIndex = 4;
+            this.btnStartQuiz.Text = "Start Quiz";
+            this.btnStartQuiz.UseVisualStyleBackColor = true;
+            this.btnStartQuiz.Click += new System.EventHandler(this.btnStartQuiz_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -91,6 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 721);
+            this.Controls.Add(this.btnStartQuiz);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.lblTime);
@@ -112,6 +131,7 @@
         private System.Windows.Forms.Label lblTime;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialRaisedButton btnStartQuiz;
     }
 }
 
