@@ -18,6 +18,7 @@ namespace Elearning
         List<String> answerKey = new List<String>();
         List<String> selectedAnswer = new List<String>();
         List<String> question = new List<string>();
+        List<String> checkAnswer = new List<String>();
         public Form1()
         {
             InitializeComponent();
@@ -25,32 +26,24 @@ namespace Elearning
             panel1.HorizontalScroll.Enabled = false;
             panel1.HorizontalScroll.Visible = false;
 
-            var lines = File.ReadLines(@"Data.txt");
-            foreach (var line in lines)
-            {
-                Quest a = new Quest(parseLine(line)[0], parseLine(line)[1], new String[] { parseLine(line)[2], parseLine(line)[3], parseLine(line)[4], parseLine(line)[5]}, parseLine(line)[6]);
-                a.Top = posY;
-                a.Left = 4;
-                posY = (a.Top + a.Height +4);
-                this.panel1.Controls.Add(a);
-              //  MessageBox.Show(a.GetCorrectAnswer());
-                answerKey.Add(a.GetCorrectAnswer());
-                question.Add(a.GetQuestion());
-                var materialSkinManager = MaterialSkinManager.Instance;
-                materialSkinManager.AddFormToManage(this);
-                materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                materialSkinManager.ColorScheme = new ColorScheme(Primary.Cyan800, Primary.Cyan900, Primary.Cyan500, Accent.LightBlue200, TextShade.WHITE);
-
-
-            }
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Cyan800, Primary.Cyan900, Primary.Cyan500, Accent.LightBlue200, TextShade.WHITE);
 
             lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
+
         }
        
         public void CheckQuiz()
         {
-            CheckQuiz quiz = new CheckQuiz();
-            int score = 0;
+            panel1.Visible = false;
+            timer1.Stop();
+            DialogResult result = MessageBox.Show("Are you sure to submit? ", "Finish", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            if (result == DialogResult.Yes)
+            {
+
+                int score = 0;
             selectedAnswer.Clear();
             foreach (Quest q in panel1.Controls)
             {
@@ -63,14 +56,7 @@ namespace Elearning
                 try
                 {
                     bool checkAnswer = selectedAnswer[i].ToString().ToLower().Trim().Equals(answerKey[i].ToString().ToLower().Trim());
-                    if (checkAnswer)
-                    {
-                        score += 1;
-                        //  MessageBox.Show(score+"");
-                        quiz.Add((i + 1).ToString(), question[i].ToString(),answerKey[i].ToString(),checkAnswer);
-                       
-                       
-                    }
+                    this.checkAnswer.Add((i + 1).ToString() + ":" + question[i] + ":" + answerKey[i] + ":" + checkAnswer);                 
                 }
                 catch (NullReferenceException)
                 {
@@ -79,16 +65,16 @@ namespace Elearning
                 }
               
             }
-            timer1.Stop();
-            MessageBox.Show(score + "");
-            DialogResult result = MessageBox.Show("Are you sure to submit? ", "Finish",MessageBoxButtons.YesNo,MessageBoxIcon.Asterisk);
-            if (result == DialogResult.Yes)
-            {
+
+
+                this.Hide();
+                CheckQuiz quiz = quiz = new CheckQuiz(checkAnswer);
                 quiz.Show();
                 
             }
             else
             {
+                panel1.Visible = true;
                 timer1.Start();
             }
                 
@@ -125,6 +111,22 @@ namespace Elearning
         int tickStart = 0;
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
+            var lines = File.ReadLines(@"Data.txt");
+            foreach (var line in lines)
+            {
+                Quest a = new Quest(parseLine(line)[0], parseLine(line)[1], new String[] { parseLine(line)[2], parseLine(line)[3], parseLine(line)[4], parseLine(line)[5] }, parseLine(line)[6]);
+                a.Top = posY;
+                a.Left = 4;
+                posY = (a.Top + a.Height + 4);
+                this.panel1.Controls.Add(a);
+                //  MessageBox.Show(a.GetCorrectAnswer());
+                answerKey.Add(a.GetCorrectAnswer());
+                question.Add(a.GetQuestion());
+               
+
+
+            }
+
             tickStart += 1;
             if (tickStart == 1)
             {
@@ -134,5 +136,6 @@ namespace Elearning
                 timer1.Start();
             }
         }
+
     }
 }

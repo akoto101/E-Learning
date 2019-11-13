@@ -18,9 +18,11 @@ namespace Elearning
         }
         public CorrectAnswers(String number,String question,String correctAnswer,bool isCorrect)
         {
+            InitializeComponent();
             lblNo.Text = number;
             lblQuestion.Text = question;
             lblAnswer.Text = correctAnswer;
+            lblAnswer.ForeColor = isCorrect ? Color.Green : Color.Red;
             pictureBox1.Image = isCorrect ? Properties.Resources.ic_check : Properties.Resources.ic_wrongs;
         }
 

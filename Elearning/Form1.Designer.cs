@@ -52,7 +52,7 @@
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.BackColor = System.Drawing.Color.Transparent;
             this.lblTime.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
-            this.lblTime.Location = new System.Drawing.Point(460, 76);
+            this.lblTime.Location = new System.Drawing.Point(460, 73);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(86, 31);
             this.lblTime.TabIndex = 1;
@@ -97,7 +97,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Elearning.Properties.Resources.icons8_future_90;
-            this.pictureBox1.Location = new System.Drawing.Point(430, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(430, 72);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

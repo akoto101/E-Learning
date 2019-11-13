@@ -63,10 +63,11 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 62);
+            this.label1.Location = new System.Drawing.Point(13, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 20);
             this.label1.TabIndex = 6;
@@ -74,9 +75,10 @@
             // 
             // lblAnswer
             // 
+            this.lblAnswer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblAnswer.BackColor = System.Drawing.Color.Transparent;
             this.lblAnswer.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnswer.Location = new System.Drawing.Point(144, 63);
+            this.lblAnswer.Location = new System.Drawing.Point(144, 78);
             this.lblAnswer.Name = "lblAnswer";
             this.lblAnswer.Size = new System.Drawing.Size(324, 20);
             this.lblAnswer.TabIndex = 7;
@@ -84,8 +86,9 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox1.Image = global::Elearning.Properties.Resources.ic_check;
-            this.pictureBox1.Location = new System.Drawing.Point(478, 57);
+            this.pictureBox1.Location = new System.Drawing.Point(478, 74);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,10 +105,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.lblNo);
-            this.MaximumSize = new System.Drawing.Size(516, 0);
-            this.MinimumSize = new System.Drawing.Size(516, 95);
+            this.MinimumSize = new System.Drawing.Size(516, 114);
             this.Name = "CorrectAnswers";
-            this.Size = new System.Drawing.Size(516, 95);
+            this.Size = new System.Drawing.Size(516, 114);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

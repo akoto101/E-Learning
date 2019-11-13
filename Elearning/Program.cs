@@ -16,7 +16,7 @@ namespace Elearning
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CheckQuiz());
+            Application.Run(new Form1());
         }
     }
 }
