@@ -53,7 +53,7 @@
             this.lbldesc.MaximumSize = new System.Drawing.Size(232, 0);
             this.lbldesc.MinimumSize = new System.Drawing.Size(232, 27);
             this.lbldesc.Name = "lbldesc";
-            this.lbldesc.Size = new System.Drawing.Size(232, 66);
+            this.lbldesc.Size = new System.Drawing.Size(232, 27);
             this.lbldesc.TabIndex = 2;
             this.lbldesc.Text = "Description";
             // 
@@ -71,6 +71,7 @@
             this.materialRaisedButton1.TabIndex = 3;
             this.materialRaisedButton1.Text = "Start";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
             // pictureBox1
             // 

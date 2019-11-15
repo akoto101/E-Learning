@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
+using System.Data.OleDb;
+
 namespace Elearning
 {
     public partial class Form1 : MaterialSkin.Controls.MaterialForm
@@ -19,12 +21,20 @@ namespace Elearning
         List<String> selectedAnswer = new List<String>();
         List<String> question = new List<string>();
         List<String> checkAnswer = new List<String>();
+
+        Database database;
+
+        private System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
+        int counter = 3600;
         public Form1()
         {
             InitializeComponent();
             panel1.AutoScroll = true;
             panel1.HorizontalScroll.Enabled = false;
             panel1.HorizontalScroll.Visible = false;
+
+            database = new Database(new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb"), new OleDbCommand());
+            database.setAdapter(new OleDbDataAdapter());
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -34,7 +44,22 @@ namespace Elearning
             lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
 
         }
-       
+        public Form1(String Title)
+        {
+            InitializeComponent();
+            this.Text = Title;
+
+            database = new Database(new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb"), new OleDbCommand());
+            database.setAdapter(new OleDbDataAdapter());
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Cyan800, Primary.Cyan900, Primary.Cyan500, Accent.LightBlue200, TextShade.WHITE);
+
+            lblTime.Text = new DateTime().AddSeconds(counter).ToString("HH:mm:ss");
+
+        }
         public void CheckQuiz()
         {
             panel1.Visible = false;
@@ -84,22 +109,8 @@ namespace Elearning
            
             CheckQuiz();
         }
-        public String[] parseLine(String a)
-        {
-            List<String> list = new List<string>();
-            String[] arr = a.Split(':');
-            String[] choices = arr[2].Split(',');
-            list.Add(arr[0].Trim());
-            list.Add(arr[1].Trim());
-            list.Add(choices[0].Trim());
-            list.Add(choices[1].Trim());
-            list.Add(choices[2].Trim());
-            list.Add(choices[3].Trim());
-            list.Add(arr[3].Trim());
-            return list.ToArray();
-        }
-        private System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
-        int counter = 3600;
+      
+      
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -111,25 +122,28 @@ namespace Elearning
         int tickStart = 0;
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
-            var lines = File.ReadLines(@"Data.txt");
-            foreach (var line in lines)
-            {
-                Quest a = new Quest(parseLine(line)[0], parseLine(line)[1], new String[] { parseLine(line)[2], parseLine(line)[3], parseLine(line)[4], parseLine(line)[5] }, parseLine(line)[6]);
-                a.Top = posY;
-                a.Left = 4;
-                posY = (a.Top + a.Height + 4);
-                this.panel1.Controls.Add(a);
-                //  MessageBox.Show(a.GetCorrectAnswer());
-                answerKey.Add(a.GetCorrectAnswer());
-                question.Add(a.GetQuestion());
-               
-
-
-            }
-
+            DataTable table = database.Select("Quiz", null, " Quiz_Title = '" + this.Text+"'");
+         
             tickStart += 1;
             if (tickStart == 1)
             {
+                for (int a = 0; a < table.Rows.Count; a++)
+                {
+                    Quest quiz = new Quest(table.Rows[a]["QuestionNo"].ToString(),
+                        table.Rows[a]["Question"].ToString(),
+                        new String[] { table.Rows[a]["A"].ToString(), table.Rows[a]["B"].ToString(), table.Rows[a]["C"].ToString(), table.Rows[a]["D"].ToString() },
+                        table.Rows[a]["Correct_Answer"].ToString());
+                    quiz.Top = posY;
+                    quiz.Left = 4;
+                    posY = (quiz.Top + quiz.Height + 4);
+                    this.panel1.Controls.Add(quiz);
+                    //  MessageBox.Show(a.GetCorrectAnswer());
+                    answerKey.Add(quiz.GetCorrectAnswer());
+                    question.Add(quiz.GetQuestion());
+
+
+
+                }
 
                 timer1.Tick += new EventHandler(timer1_Tick);
                 timer1.Interval = 1000; // 1 second

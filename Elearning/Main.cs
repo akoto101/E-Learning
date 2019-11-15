@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using System.IO;
+using System.Data.OleDb;
 
 namespace Elearning
 {
@@ -16,47 +17,42 @@ namespace Elearning
     {
         int posX = 50;
         int posY = 10;
-
+        Database database;
         public Main()
         {
             InitializeComponent();
+
+            database = new Database(new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb"), new OleDbCommand());
+            database.setAdapter(new OleDbDataAdapter());
+
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Cyan800, Primary.Cyan900, Primary.Cyan500, Accent.LightBlue200, TextShade.WHITE);
 
-
-            //ModuleOverView module = new ModuleOverView();
-            //module.Top = posY;
-            //module.Left = posX;
-            //posX = (10 + module.Width + module.Left);
-            //ModuleOverView module1 = new ModuleOverView();
-            //module1.Top = posY;
-            //module1.Left = posX;
-            //posX = (10 + module1.Width + module1.Left);
-            //ModuleOverView module2 = new ModuleOverView();
-            //module2.Top = posY;
-            //module2.Left = posX;
-            //this.panel1.Controls.Add(module);
-            //this.panel1.Controls.Add(module1);
-            //this.panel1.Controls.Add(module2);
-            var lines = File.ReadLines(@"Module_Data.txt");
             int i = 0;
-            foreach (var line in lines)
-            {
-                i++;
-                ModuleOverView module = new ModuleOverView(new Bitmap(parseLine(line)[0]), parseLine(line)[1], parseLine(line)[2]);
+        
+           
+           DataTable table = database.Select("Module_Data",null,"");
+            for (int a = 0; a < table.Rows.Count;a++) { 
+                ModuleOverView module = new ModuleOverView(
+                    new Bitmap(table.Rows[a]["Image_Path"].ToString()), 
+                    table.Rows[a]["Title"].ToString(),
+                    table.Rows[a]["Description"].ToString(),
+                    table.Rows[a]["PDFPath"].ToString());
                 module.Top = posY;
                 module.Left = posX;
+                i += 1;
                 posX = (10 + module.Width + module.Left);
                 if (0 == i % 3)
                 {
                     posY = (10 + module.Height + module.Top);
                     posX = 50;
-                    
+
                 }
                 this.panel1.Controls.Add(module);
             }
+           
         }
         public String[] parseLine(String a)
         {
@@ -68,6 +64,11 @@ namespace Elearning
            
             list.Add(arr[2].Trim());
             return list.ToArray();
+        }
+
+        private void btnStartQuiz_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
