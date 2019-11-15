@@ -123,7 +123,8 @@ namespace Elearning
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
             DataTable table = database.Select("Quiz", null, " Quiz_Title = '" + this.Text+"'");
-         
+            table.DefaultView.Sort = "ID";
+            table = table.DefaultView.ToTable();
             tickStart += 1;
             if (tickStart == 1)
             {

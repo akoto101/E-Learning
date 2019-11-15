@@ -53,7 +53,7 @@
             this.lbldesc.MaximumSize = new System.Drawing.Size(232, 0);
             this.lbldesc.MinimumSize = new System.Drawing.Size(232, 27);
             this.lbldesc.Name = "lbldesc";
-            this.lbldesc.Size = new System.Drawing.Size(232, 27);
+            this.lbldesc.Size = new System.Drawing.Size(232, 66);
             this.lbldesc.TabIndex = 2;
             this.lbldesc.Text = "Description";
             // 

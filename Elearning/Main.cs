@@ -34,6 +34,9 @@ namespace Elearning
         
            
            DataTable table = database.Select("Module_Data",null,"");
+           table.DefaultView.Sort = "ID";
+           table = table.DefaultView.ToTable();
+
             for (int a = 0; a < table.Rows.Count;a++) { 
                 ModuleOverView module = new ModuleOverView(
                     new Bitmap(table.Rows[a]["Image_Path"].ToString()), 
