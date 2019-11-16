@@ -44,5 +44,11 @@ namespace Elearning
             this.Hide();
             form.ShowDialog();
         }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Main().Show();
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.btnStartQuiz = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // webBrowser1
@@ -60,14 +61,32 @@
             this.btnStartQuiz.UseVisualStyleBackColor = true;
             this.btnStartQuiz.Click += new System.EventHandler(this.btnStartQuiz_Click);
             // 
+            // materialRaisedButton2
+            // 
+            this.materialRaisedButton2.AutoSize = true;
+            this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton2.Depth = 0;
+            this.materialRaisedButton2.Icon = null;
+            this.materialRaisedButton2.Location = new System.Drawing.Point(12, 71);
+            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton2.Name = "materialRaisedButton2";
+            this.materialRaisedButton2.Primary = true;
+            this.materialRaisedButton2.Size = new System.Drawing.Size(158, 36);
+            this.materialRaisedButton2.TabIndex = 6;
+            this.materialRaisedButton2.Text = "Back to Main menu";
+            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
+            // 
             // HandoutViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 682);
+            this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.btnStartQuiz);
             this.Controls.Add(this.webBrowser1);
             this.Name = "HandoutViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HandoutViewer";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -78,5 +97,6 @@
 
         private System.Windows.Forms.WebBrowser webBrowser1;
         private MaterialSkin.Controls.MaterialRaisedButton btnStartQuiz;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
     }
 }

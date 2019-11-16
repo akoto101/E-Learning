@@ -78,7 +78,6 @@
             // 
             // btnStartQuiz
             // 
-            this.btnStartQuiz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStartQuiz.AutoSize = true;
             this.btnStartQuiz.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnStartQuiz.Depth = 0;
@@ -95,6 +94,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Elearning.Properties.Resources.icons8_future_90;
             this.pictureBox1.Location = new System.Drawing.Point(430, 72);

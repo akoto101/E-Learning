@@ -55,8 +55,23 @@ namespace Elearning
                 }
                 this.panel1.Controls.Add(module);
             }
-           
-        }
+            DataTable quizScore = database.Select("Score", null, "");
+            quizScore.DefaultView.Sort = "ID";
+            quizScore = quizScore.DefaultView.ToTable();
+            int quizPosY = 4;
+                for (int a = 0; a < quizScore.Rows.Count; a++)
+                {
+              
+                Scores score = new Scores(quizScore.Rows[a]["Quiz_Title"].ToString(),
+                   quizScore.Rows[a]["Score"].ToString(),Boolean.Parse(quizScore.Rows[a]["isPass"].ToString()));
+                score.Top = quizPosY;
+                //  quiz.Left = 4;
+                quizPosY = (score.Top + score.Height + 4);
+                    this.panelScores.Controls.Add(score);
+                
+                }
+
+            }
         public String[] parseLine(String a)
         {
             List<String> list = new List<string>();
@@ -72,6 +87,12 @@ namespace Elearning
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Login().Show();
         }
     }
 }

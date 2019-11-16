@@ -93,7 +93,7 @@ namespace Elearning
 
 
                 this.Hide();
-                CheckQuiz quiz = quiz = new CheckQuiz(checkAnswer);
+                CheckQuiz quiz = quiz = new CheckQuiz(checkAnswer,this.Text);
                 quiz.Show();
                 
             }

@@ -114,6 +114,12 @@
     <Compile Include="Quest.Designer.cs">
       <DependentUpon>Quest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Scores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scores.Designer.cs">
+      <DependentUpon>Scores.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CheckQuiz.resx">
       <DependentUpon>CheckQuiz.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="Quest.resx">
       <DependentUpon>Quest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scores.resx">
+      <DependentUpon>Scores.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
