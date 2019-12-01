@@ -33,7 +33,7 @@ namespace Elearning
             panel1.HorizontalScroll.Enabled = false;
             panel1.HorizontalScroll.Visible = false;
 
-            database = new Database(new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb"), new OleDbCommand());
+            database = new Database(new OleDbConnection(Elearning.Properties.Settings.Default.ConnectionString), new OleDbCommand());
             database.setAdapter(new OleDbDataAdapter());
 
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -49,7 +49,7 @@ namespace Elearning
             InitializeComponent();
             this.Text = Title;
 
-            database = new Database(new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb"), new OleDbCommand());
+            database = new Database(new OleDbConnection(Properties.Settings.Default.ConnectionString), new OleDbCommand());
             database.setAdapter(new OleDbDataAdapter());
 
             var materialSkinManager = MaterialSkinManager.Instance;

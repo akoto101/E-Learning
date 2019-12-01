@@ -21,8 +21,10 @@ namespace Elearning
         public Main()
         {
             InitializeComponent();
-
-            database = new Database(new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb"), new OleDbCommand());
+            btnManage.Visible = Properties.Settings.Default.UserType == "Admin" ? true : false;
+            btnScores.Visible = Properties.Settings.Default.UserType == "Admin" ? true : false;
+            btnDBPath.Visible = Properties.Settings.Default.UserType == "Admin" ? true : false;
+            database = new Database(new OleDbConnection(Properties.Settings.Default.ConnectionString), new OleDbCommand());
             database.setAdapter(new OleDbDataAdapter());
 
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -39,7 +41,7 @@ namespace Elearning
 
             for (int a = 0; a < table.Rows.Count;a++) { 
                 ModuleOverView module = new ModuleOverView(
-                    new Bitmap(table.Rows[a]["Image_Path"].ToString()), 
+                    Image.FromFile(table.Rows[a]["Image_Path"].ToString()), 
                     table.Rows[a]["Title"].ToString(),
                     table.Rows[a]["Description"].ToString(),
                     table.Rows[a]["PDFPath"].ToString());
@@ -55,21 +57,22 @@ namespace Elearning
                 }
                 this.panel1.Controls.Add(module);
             }
-            DataTable quizScore = database.Select("Score", null, "");
-            quizScore.DefaultView.Sort = "ID";
-            quizScore = quizScore.DefaultView.ToTable();
-            int quizPosY = 4;
-                for (int a = 0; a < quizScore.Rows.Count; a++)
-                {
+            //DataTable quizScore = database.Select("Score", null, "");
+            //quizScore.DefaultView.Sort = "ID";
+            //quizScore = quizScore.DefaultView.ToTable();
+            //int quizPosY = 4;
+            //    for (int a = 0; a < quizScore.Rows.Count; a++)
+            //    {
               
-                Scores score = new Scores(quizScore.Rows[a]["Quiz_Title"].ToString(),
-                   quizScore.Rows[a]["Score"].ToString(),Boolean.Parse(quizScore.Rows[a]["isPass"].ToString()));
-                score.Top = quizPosY;
-                //  quiz.Left = 4;
-                quizPosY = (score.Top + score.Height + 4);
-                    this.panelScores.Controls.Add(score);
+            //    Scores score = new Scores(quizScore.Rows[a]["Quiz_Title"].ToString(),
+            //       quizScore.Rows[a]["Score"].ToString(),Boolean.Parse(quizScore.Rows[a]["isPass"].ToString()));
+            //    score.Top = quizPosY;
+            //    //  quiz.Left = 4;
+            //    quizPosY = (score.Top + score.Height + 4);
+            //        this.panelScores.Controls.Add(score);
                 
-                }
+            //    }
+          
 
             }
         public String[] parseLine(String a)
@@ -93,6 +96,13 @@ namespace Elearning
         {
             this.Hide();
             new Login().Show();
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            Manage manage = new Manage();
+            this.Hide();
+            manage.ShowDialog();
         }
     }
 }

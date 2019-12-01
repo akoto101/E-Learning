@@ -34,7 +34,12 @@ namespace Elearning
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Cyan800, Primary.Cyan900, Primary.Cyan500, Accent.LightBlue200, TextShade.WHITE);
             String appPath = AppDomain.CurrentDomain.BaseDirectory;
-            webBrowser1.Navigate("file:///" + appPath + pdfPath);
+
+            if (this.webBrowser1 != null)
+            {
+                this.webBrowser1.Navigate("file:///" + appPath + pdfPath);
+            }
+                //   (webBrowser1.ActiveXInstance as SHDocVw.ShellBrowserWindow).FileDownload -= browser_FileDownload;
 
         }
 

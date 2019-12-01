@@ -17,7 +17,7 @@ namespace Elearning
             InitializeComponent();
         }
         String Path = "";
-        public ModuleOverView(Bitmap bmp,String title,String desc,String pdfPath)
+        public ModuleOverView(Image bmp,String title,String desc,String pdfPath)
         {
             InitializeComponent();
             pictureBox1.Image = bmp;

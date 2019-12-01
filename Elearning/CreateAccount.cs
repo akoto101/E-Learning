@@ -17,7 +17,7 @@ namespace Elearning
         public CreateAccount()
         {
             InitializeComponent();
-            database = new Database(new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb"),new OleDbCommand());
+            database = new Database(new OleDbConnection(Properties.Settings.Default.ConnectionString),new OleDbCommand());
         }
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)

@@ -45,6 +45,7 @@
       <HintPath>..\..\..\Barangay_System\BarangaySystem\bin\Debug\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
@@ -100,6 +101,54 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage.Designer.cs">
+      <DependentUpon>Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageControl\Accounts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageControl\Accounts.Designer.cs">
+      <DependentUpon>Accounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageControl\AccountsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageControl\AccountsUC.Designer.cs">
+      <DependentUpon>AccountsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageControl\AddManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageControl\AddManager.Designer.cs">
+      <DependentUpon>AddManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageControl\Module.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageControl\Module.Designer.cs">
+      <DependentUpon>Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageControl\ModuleUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageControl\ModuleUC.Designer.cs">
+      <DependentUpon>ModuleUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageControl\Quiz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageControl\Quiz.Designer.cs">
+      <DependentUpon>Quiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageControl\QuizUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageControl\QuizUC.Designer.cs">
+      <DependentUpon>QuizUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleOverView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +162,12 @@
     </Compile>
     <Compile Include="Quest.Designer.cs">
       <DependentUpon>Quest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuizScores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuizScores.Designer.cs">
+      <DependentUpon>QuizScores.cs</DependentUpon>
     </Compile>
     <Compile Include="Scores.cs">
       <SubType>UserControl</SubType>
@@ -141,6 +196,30 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manage.resx">
+      <DependentUpon>Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageControl\Accounts.resx">
+      <DependentUpon>Accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageControl\AccountsUC.resx">
+      <DependentUpon>AccountsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageControl\AddManager.resx">
+      <DependentUpon>AddManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageControl\Module.resx">
+      <DependentUpon>Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageControl\ModuleUC.resx">
+      <DependentUpon>ModuleUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageControl\Quiz.resx">
+      <DependentUpon>Quiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageControl\QuizUC.resx">
+      <DependentUpon>QuizUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleOverView.resx">
       <DependentUpon>ModuleOverView.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +235,9 @@
     </Compile>
     <EmbeddedResource Include="Quest.resx">
       <DependentUpon>Quest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuizScores.resx">
+      <DependentUpon>QuizScores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scores.resx">
       <DependentUpon>Scores.cs</DependentUpon>
@@ -199,6 +281,49 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cute-asian-kid-doing-math-1024x683.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-961.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-reset-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

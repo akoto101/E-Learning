@@ -18,7 +18,7 @@ namespace Elearning
             InitializeComponent();
 
         }
-        public Scores(String Title ,String Score,bool isPass)
+        public Scores(String Title ,String Score,bool isPass,String user,String email)
         {
             InitializeComponent();
             panelColor.BackColor = isPass ? Color.Green : Color.Red;

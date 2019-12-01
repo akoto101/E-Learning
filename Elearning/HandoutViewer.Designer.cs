@@ -28,21 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.btnStartQuiz = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser1.Location = new System.Drawing.Point(12, 113);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(654, 557);
-            this.webBrowser1.TabIndex = 0;
             // 
             // btnStartQuiz
             // 
@@ -77,14 +66,25 @@
             this.materialRaisedButton2.UseVisualStyleBackColor = true;
             this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser1.Location = new System.Drawing.Point(12, 113);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(654, 557);
+            this.webBrowser1.TabIndex = 7;
+            // 
             // HandoutViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 682);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.btnStartQuiz);
-            this.Controls.Add(this.webBrowser1);
             this.Name = "HandoutViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HandoutViewer";
@@ -94,9 +94,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private MaterialSkin.Controls.MaterialRaisedButton btnStartQuiz;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

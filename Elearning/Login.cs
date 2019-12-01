@@ -18,7 +18,7 @@ namespace Elearning
         public Login()
         {
             InitializeComponent();
-            database = new Database(new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb"), new OleDbCommand());
+            database = new Database(new OleDbConnection(Properties.Settings.Default.ConnectionString), new OleDbCommand());
            
         }
 
@@ -47,6 +47,8 @@ namespace Elearning
                 }
                 else if (rows.Count() != 0)
                 {
+                  Properties.Settings.Default.UserType = rows[0]["Account_Type"].ToString();
+                Properties.Settings.Default.Save();
                     MessageBox.Show("Credentials Accepted!", "Login Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
                     this.Hide();
                     new Main().ShowDialog();
