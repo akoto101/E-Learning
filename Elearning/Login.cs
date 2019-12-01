@@ -47,7 +47,8 @@ namespace Elearning
                 }
                 else if (rows.Count() != 0)
                 {
-                  Properties.Settings.Default.UserType = rows[0]["Account_Type"].ToString();
+                Properties.Settings.Default.UserType = rows[0]["Account_Type"].ToString();
+                Properties.Settings.Default.Username = txtUser.Text;
                 Properties.Settings.Default.Save();
                     MessageBox.Show("Credentials Accepted!", "Login Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
                     this.Hide();

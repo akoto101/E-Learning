@@ -46,21 +46,23 @@ namespace Elearning
             DataTable count = database.Select("Quiz",null," Quiz_Title = '" + this.Text +"'");
              countControls = count.Rows.Count;
             DataTable table = database.Select("Score", null, " Quiz_Title = '" + this.Text+"'");
+            DataTable user = database.Select("Signin",null, " Us = '" + Properties.Settings.Default.Username + "'");
             table.DefaultView.Sort = "ID";
             table = table.DefaultView.ToTable();
+            ContentValues values = new ContentValues();
+            values.Add("Quiz_Title", this.Text);
+            values.Add("Score", score + " / " + countControls);
+            values.Add("isPass", score > (countControls / 2) ? "True" : "False");
+            values.Add("Us", Properties.Settings.Default.Username);
+            values.Add("Email", user.Rows[0]["Em"].ToString());
             if (table.Rows.Count != 0)
             {
-                ContentValues values = new ContentValues();               
-                values.Add("Score", score + " / " + countControls);
-                values.Add("isPass", score > (countControls / 2) ? "True" : "False");
+               
                 database.Update("Score", values, " Quiz_Title = '" + this.Text+"'");
             }
             else
             {
-                ContentValues values = new ContentValues();
-                values.Add("Quiz_Title", this.Text);
-                values.Add("Score", score + " / " + countControls);
-                values.Add("isPass", score > (countControls / 2) ? "True" : "False");
+             
                 database.Insert("Score", values);
             }
             timer1.Interval = 1000;

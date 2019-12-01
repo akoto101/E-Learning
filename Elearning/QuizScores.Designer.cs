@@ -55,6 +55,7 @@
             this.materialRaisedButton2.Size = new System.Drawing.Size(44, 36);
             this.materialRaisedButton2.TabIndex = 7;
             this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
             // 
             // btnStartQuiz
             // 
@@ -90,6 +91,7 @@
             this.txtUser.TabIndex = 2;
             this.txtUser.Text = "Username";
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtUser.OnValueChanged += new System.EventHandler(this.txtUser_OnValueChanged);
             // 
             // QuizScores
             // 
@@ -100,6 +102,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.btnStartQuiz);
+            this.MaximumSize = new System.Drawing.Size(487, 714);
+            this.MinimumSize = new System.Drawing.Size(487, 714);
             this.Name = "QuizScores";
             this.Text = "QuizScores";
             this.ResumeLayout(false);

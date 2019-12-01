@@ -109,6 +109,7 @@
             this.btnDBPath.TabIndex = 9;
             this.btnDBPath.Text = "Database Path";
             this.btnDBPath.UseVisualStyleBackColor = true;
+            this.btnDBPath.Click += new System.EventHandler(this.btnDBPath_Click);
             // 
             // Main
             // 

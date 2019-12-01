@@ -24,6 +24,8 @@ namespace Elearning
             panelColor.BackColor = isPass ? Color.Green : Color.Red;
             lblTitle.Text = Title;
             lblScore.Text = Score;
+            lblUser.Text = email;
+            lblEmail.Text = user;
         }
     }
 }

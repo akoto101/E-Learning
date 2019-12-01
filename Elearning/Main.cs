@@ -24,6 +24,7 @@ namespace Elearning
             btnManage.Visible = Properties.Settings.Default.UserType == "Admin" ? true : false;
             btnScores.Visible = Properties.Settings.Default.UserType == "Admin" ? true : false;
             btnDBPath.Visible = Properties.Settings.Default.UserType == "Admin" ? true : false;
+                
             database = new Database(new OleDbConnection(Properties.Settings.Default.ConnectionString), new OleDbCommand());
             database.setAdapter(new OleDbDataAdapter());
 
@@ -102,6 +103,12 @@ namespace Elearning
         {
             Manage manage = new Manage();
             this.Hide();
+            manage.ShowDialog();
+        }
+
+        private void btnDBPath_Click(object sender, EventArgs e)
+        {
+            DatabaseManage manage = new DatabaseManage();
             manage.ShowDialog();
         }
     }
